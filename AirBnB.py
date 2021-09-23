@@ -1,20 +1,31 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
-import AirBnBLogIn
 import time
+
+
 city = 'Tokyo'
 check_in = ('26', ('September','1'), '2022')
 check_out = ('10', ('October','1'), '2022')
 crew = 2
 len_opp = 10
-
+email = 'yosefbot369@gmail.com'
+password = 'Yosef!!!@'
 
 driver = webdriver.Chrome()
-url = 'https://airbnb.com/?_set_bev_on_new_domain=1597070989_ZTEzYjU3YmJiYzY0'
+url = 'https://www.airbnb.com/oauth_connect?from=facebook_login&service=facebook'
 driver.get(url)
+time.sleep(1)
+driver.find_element_by_name('button').click()
+driver.find_element_by_name('button').click()
+time.sleep(1)
+x = driver.find_elements_by_class_name("_55r1")
+x[0].send_keys(email)
+x[1].send_keys(password)
+driver.find_element_by_class_name('_xkt').click()
+time.sleep(10)
 
-time.sleep(0.5)
+
 search_button = driver.find_element_by_xpath('//*[@id="bigsearch-query-detached-query-input"]')# input city
 search_button.send_keys(city)
 time.sleep(0.5)
