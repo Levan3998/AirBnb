@@ -50,6 +50,33 @@ for i in o_:
 
 
 # input check out
+flag = True
+flag1 = True
+check_m = check_in[1][0] + " " + check_in[2]
+same_ = driver.find_elements_by_class_name('_116xafi')[-3] # check for same month as check in first
+if (same_.text == check_m):
+    flag = False
+    flag1 = False
+    m_ = driver.find_elements_by_class_name('_1lds9wb')[-2]
+    n_ = m_.find_element_by_class_name('_cvkwaj')
+    o_ = n_.find_elements_by_class_name('_k5mfsv')
+while(flag):
+    m_ = driver.find_elements_by_class_name('_116xafi')[-1]
+    if(m_.text == check_m):
+        flag = False
+    else:
+        move_button = driver.find_elements_by_class_name('_187sg6v')[-1]
+        move_button.click()
+if(flag1):
+    m_ = driver.find_elements_by_class_name('_1lds9wb')[-1]
+    n_ = m_.find_element_by_class_name('_cvkwaj')
+    o_ = n_.find_elements_by_class_name('_k5mfsv')
+for i in o_:
+    if(i.text == check_in[0]):
+        i.click()
+
+
+# input check out
 check_m = check_out[1][0] + " " + check_out[2]
 flag = True
 same_ = driver.find_elements_by_class_name('_116xafi')[-2] # check for same month as check in first
@@ -77,7 +104,6 @@ for i in range(crew):
 
 
 driver.find_element_by_class_name('_1mzhry13').click()# search for resaults
-
 
 ########################################################################################################
 time.sleep(3)
