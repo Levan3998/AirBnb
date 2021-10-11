@@ -1,21 +1,22 @@
 
-
+#####################use own cookies##########################
 options1 = options.Options()
 options1.add_argument("user-data-dir=C:/Users/Levan/AppData/Local/Google/Chrome/User Data")
 driver = webdriver.Chrome(options=options1)
+##############################################################
 driver.get('https://www.airbnb.com/?locale=en&_set_bev_on_new_domain=1632576550_NzVhZWFhN2VlODZm')
-#open tab
-city = 'Dahab'
+#####################search stats##########################
+city = 'Tokyo'
 check_in = ('3', ('November','11'), '2021')
 check_out = ('10', ('November','11'), '2021')
 crew = 2
 len_opp = 10
-email = 'yosefbot369@gmail.com'
-password = 'Yosef!!!@'
-album = 'Dahab, Égypte'#Lima, Perú'#'Tokyo, Japan'#'Amsterdam, Netherlands'
+album = 'Tokyo, Japan'
 price_factor = 1
 rate_factor = 1
 time.sleep(2)
+#####################search##########################
+#city
 search_button = driver.find_element_by_xpath('//*[@id="bigsearch-query-detached-query-input"]')# input city
 search_button.send_keys(city)
 time.sleep(1)
@@ -86,7 +87,7 @@ try:
     driver.find_element_by_xpath('//*[@id="ExploreLayoutController"]/div[1]/div[1]/div[2]/div/div[2]/div/div/div/div[2]/div/div/div[1]/div[2]/a').click()
     time.sleep(3)
 except:
-    print("Puta!")
+    pass
 ########################################################################################################
 def clean_price(txt):
     x1 = txt.split(" ")[0][1:]
